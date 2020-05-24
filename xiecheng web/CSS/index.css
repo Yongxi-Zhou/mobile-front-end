@@ -1,0 +1,368 @@
+body {
+    max-width: 540px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    font: 400 16px/1.5 PingFangSC-regular, Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    /* height: 2000px; */
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* 清除图片下边缘 */
+
+img {
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+}
+
+
+/* 这里用来css3盒子模型,宽度算在盒子里,加了边框也不会挤开 */
+
+div {
+    box-sizing: border-box;
+}
+
+
+/* C3的width包括border和padding */
+
+.search-box {
+    /* 固定定位与父级无关，要再给宽度 */
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    max-width: 540px;
+    min-width: 320px;
+    width: 100%;
+    height: 44px;
+    /* background-color: pink; */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search {
+    flex: 1;
+    height: 26px;
+    /* 这里的高度是算上了border的2px，所以实际上要小2px */
+    line-height: 24px;
+    border: 1px solid #ccc;
+    margin: 7px 10px;
+    border-radius: 8px;
+    padding-left: 25px;
+    font-size: 12px;
+    color: #666;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 16px;
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px;
+}
+
+.search-box a {
+    width: 44px;
+    height: 44px;
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+    /* margin-bottom: -2px; */
+}
+
+.search-box a::before {
+    content: "";
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(../images/sprite.png) -60px -195px no-repeat;
+    background-size: 104px;
+    margin: 4px auto -2px;
+}
+
+.focus img {
+    width: 100%;
+    margin-top: 44px;
+}
+
+.local-nav {
+    height: 64px;
+    background-color: #fff;
+    margin: 3px 4px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.local-nav li {
+    flex: 1;
+    height: 64px;
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.local-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 用属性选择器把全部改了,再局部调位置 */
+
+.local-nav span[class^=local-nav-logo] {
+    width: 32px;
+    height: 32px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px;
+    margin-top: 8px;
+}
+
+.local-nav span.local-nav-logo2 {
+    background-position: 0 -32px;
+}
+
+.local-nav span.local-nav-logo3 {
+    background-position: 0 -64px;
+}
+
+.local-nav span.local-nav-logo4 {
+    background-position: 0 -96px;
+}
+
+.local-nav span.local-nav-logo5 {
+    background-position: 0 -128px;
+}
+
+
+/* 主导航栏 */
+
+nav {
+    /* 相当于是个裁剪框 */
+    border-radius: 8px;
+    margin: 3px 4px;
+    overflow: hidden;
+}
+
+nav .nav-common {
+    height: 88px;
+    background-color: pink;
+    display: flex;
+}
+
+nav .nav-common:nth-child(2) {
+    margin: 3px 0;
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 44px;
+}
+
+
+/* 前两个有右边框 */
+
+.nav-items:nth-child(-n+2) {
+    border-right: 1px solid #fff;
+}
+
+.nav-items a {
+    flex: 1;
+    /* flex-direction: column; */
+    /* 为什么用column不能竖着排 要写在父亲那里 */
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+
+.nav-items:nth-child(n+2) a:nth-child(1) {
+    border-bottom: 1px solid #fff;
+}
+
+
+/* 在a里面加背景图片 */
+
+.nav-items:nth-child(1) a {
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px;
+}
+
+
+/* 加渐变底色 */
+
+.nav-common:nth-child(1) {
+    background: -webkit-linear-gradient(left, #fa5b55, #fa984d);
+}
+
+.nav-common:nth-child(2) {
+    background: -webkit-linear-gradient(left, #4b91ed, #53baed);
+}
+
+.nav-common:nth-child(3) {
+    background: -webkit-linear-gradient(left, #36c3a7, #69d45d);
+}
+
+
+/* 侧导航栏 */
+
+.subnav {
+    display: flex;
+    margin: 3px 4px;
+    border-radius: 8px;
+    background-color: #fff;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+}
+
+
+/* flex可以加百度分 */
+
+.subnav li {
+    flex: 20%;
+    padding: 8px 0;
+}
+
+.subnav li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span[class^=subnav-logo] {
+    width: 28px;
+    height: 28px;
+    background: url(../images/subnav-bg.png) no-repeat;
+    background-size: 28px;
+}
+
+.subnav .subnav-logo2 {
+    background-position: 0 -29px;
+}
+
+.subnav .subnav-logo3 {
+    background-position: 0 -63px;
+}
+
+.subnav .subnav-logo4 {
+    background-position: 0 -99px;
+}
+
+.subnav .subnav-logo5 {
+    background-position: 0 -133px;
+}
+
+.subnav .subnav-logo6 {
+    background-position: 0 -163px;
+}
+
+.subnav .subnav-logo7 {
+    background-position: 0 -197px;
+}
+
+.subnav .subnav-logo8 {
+    background-position: 0 -231px;
+}
+
+.subnav .subnav-logo9 {
+    background-position: 0 -260px;
+}
+
+.subnav .subnav-logo10 {
+    background-position: 0 -289px;
+}
+
+
+/* 热门活动 */
+
+.sale-box {
+    background-color: #fff;
+    border-radius: 8px;
+    border-top: 1px solid #aaa;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+    margin: 4px;
+}
+
+.sale-hd {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sale-hd h2 {
+    position: relative;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+.sale-hd h2::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    width: 79px;
+    height: 15px;
+    background: url(../images/hot.png) no-repeat 0 -19px;
+    background-size: 79px;
+}
+
+.more {
+    position: absolute;
+    top: -3px;
+    right: 10px;
+    background: -webkit-linear-gradient(left, #ff5170, #ff6ac2);
+    padding: 5px 20px 5px 10px;
+    border-radius: 17px;
+    color: #fff;
+}
+
+.more::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.sale-items {
+    display: flex;
+}
+
+.sale-items a {
+    flex: 1;
+}
+
+.sale-items a img {
+    width: 100%;
+}
+
+.sale-items:nth-child(-n+2) a {
+    border-bottom: 1px solid #ccc;
+}
+
+.sale-items a:nth-child(1) {
+    border-right: 1px solid #ccc;
+}

@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-size: .333333rem;
+}
+
+img {
+    vertical-align: top;
+}
+
+body {
+    min-width: 320px;
+    /* // 可以不给最大宽度，用rem表示 */
+    width: 10rem;
+    max-width: 750px;
+    /* 因为是移动端，所以最大就750px，电脑1440,10rem就是1440会超过750，所以要限定 */
+    /* // 因为最大就750px,此时1rem=15px */
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* 要控制超过750时，html的font-size */
+
+@media screen and (min-width: 750px) {
+    html {
+        /* 权重不够js的 */
+        font-size: 75px!important;
+    }
+}
+
+.search-content {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 10rem;
+    height: 1.173333rem;
+    background-color: orange;
+}
+
+.classify {
+    width: .586667rem;
+    height: .933333rem;
+    margin: .146667rem .333333rem .093333rem .32rem;
+    background: url(../images/classify.png);
+    background-size: .586667rem .933333rem;
+}
+
+.search {
+    flex: 1;
+}
+
+.login {
+    width: 1rem;
+    height: .933333rem;
+    margin: .133333rem;
+    text-align: center;
+    line-height: .933333rem;
+    color: #fff;
+}
+
+.search input {
+    outline: none;
+    border: 0;
+    width: 100%;
+    height: .88rem;
+    background-color: #fff2cc;
+    margin-top: .133333rem;
+    border-radius: .44rem;
+    padding-left: .733333rem;
+    font-size: .213333rem;
+}
+
+.banner {
+    width: 10rem;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.ad {
+    display: flex;
+}
+
+.ad a {
+    flex: 1;
+}
+
+.ad a img {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    margin-top: .133333rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    flex: 20%;
+    width: 2rem;
+    height: 1.866667rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+nav a img {
+    width: 1.093333rem;
+    height: 1.093333rem;
+    margin: .133333rem .453333rem;
+}
+
+nav a h2 {
+    font-size: .333333rem;
+    color: #333;
+    font-weight: 400;
+}

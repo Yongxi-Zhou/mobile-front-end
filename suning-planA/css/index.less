@@ -1,0 +1,115 @@
+// 引入别的less文件样式
+@import "common";
+@base: 50;
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+img {
+    vertical-align: top;
+
+}
+body {
+    min-width: 320px;
+    // 可以不给最大宽度，用rem表示
+    width: 15rem;
+    // 因为最大就750px,此时1rem=15px,rem最大不超过15px，所以不用设max-width也可以
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: 88rem / @base;
+    background-color: orange;
+}
+.classify {
+    width: 44rem / @base;
+    height: 70rem / @base;
+    background-color: pink;
+    margin: 11rem / @base 25rem / @base 7rem / @base 24rem / @base;
+    background: url(../images/classify.png) no-repeat; 
+    background-size: 44rem / @base 70rem / @base;
+}
+.login {
+    width: 75rem / @base;
+    height: 70rem / @base;
+    line-height: 70rem / @base;
+    margin: 10rem / @base;
+    font-size: 25rem / @base;
+    color: #fff;
+    text-align: center;
+}
+.search {
+    flex: 1;
+    // background-color: green;
+    input {
+        // padding会撑大盒子，所以要用box-sizing
+        box-sizing: border-box;
+        outline: 0;
+        width: 100%;
+        border: 0;
+        height: 66rem / @base;
+        border-radius: 33rem / @base;
+        margin-top: 10rem / @base;
+        background-color: #fff2cc;
+        padding-left: 50rem / @base;
+        font-size: 20rem / @base;
+        color: #757575;
+    }
+}
+
+// banner
+.banner img {
+    width: 100%;
+}
+.ad {
+    display: flex;
+    a {
+        flex: 1;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.nav {
+    margin-top: 10rem / @base;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        flex: 20%;
+        // width: 150rem / @base;
+        height: 140rem / @base;
+        // background-color: orange;
+        text-align: center;
+        a {
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 82rem / @base;
+                margin: 10rem / @base 34rem / @base;
+            }
+            span {
+                font-size: 25rem / @base;
+                color: #333;
+            }
+        }
+    }
+}
